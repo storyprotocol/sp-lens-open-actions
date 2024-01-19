@@ -1,0 +1,19 @@
+@startuml
+title Lens Protocol X Story Protocol Integrate Demo Based On Open Action
+legend center
+This demo should allow anyone to register a Lens publication as a IPAsset on Story Protocol
+end legend
+
+actor "User" as user
+participant "Lens Hub" as lh
+participant "Open Action" as oa
+participant "Story Protocol" as sp
+
+autonumber
+user -> user : Create a publication
+user -> lh : Send a smart post
+lh -> oa : Call **processPublicationAction** \n function
+oa -> sp : Call **registerIPAsset** function \n for minting a new IP asset NFT
+oa -> sp : Call **transferIPAsset** function \n for transferring the NTF from \n contract to user
+
+@enduml
